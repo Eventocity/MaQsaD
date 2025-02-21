@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaQsaD - Login or Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FF0080, #7928CA);
+            min-height: 100vh;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h1 {
+            color: white;
+            font-size: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .main-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .toggle-btn {
+            padding: 0.5rem 2rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .toggle-btn.active {
+            background-color: #FF0080;
+            color: white;
+        }
+        .form-container {
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-container.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #FF0080;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #CC0066;
+        }
+        .role-selection {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .role-btn {
+            padding: 0.5rem 2rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .role-btn.active {
+            background-color: #7928CA;
+            color: white;
+        }
+        .role-fields {
+            margin-top: 2rem;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        #other-service {
+            margin-top: 1rem;
+        }
+        h3 {
+            margin: 1.5rem 0 1rem;
+            color: #333;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .footer-content h3 {
+            margin-bottom: 1rem;
+        }
+        .footer-content p {
+            margin: 0.5rem 0;
+        }
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 0.5rem;
+            color: #FF0080;
+        }
+        .error {
+            border-color: red !important;
+        }
+        .form-group input.error::placeholder,
+        .form-group textarea.error::placeholder {
+            color: red;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>MaQsaD</h1>
+        <div class="nav-links">
+            <a href="javascript:void(0);" onclick="showForm('login')">Login</a>
+            <a href="javascript:void(0);" onclick="showForm('signup')">Sign Up</a>
+            <a href="javascript:void(0);" onclick="showAbout()">About Us</a>
+        </div>
+    </nav>
+    <div class="main-container">
+        <h2>Welcome to MaQsaD</h2>
+        <div class="toggle-buttons">
+            <button class="toggle-btn active" onclick="showForm('login')">Login</button>
+            <button class="toggle-btn" onclick="showForm('signup')">Sign Up</button>
+        </div>
+        <div id="login-form" class="form-container active">
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-username">Username or Email</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+        <div id="signup-form" class="form-container">
+            <form action="auth/signup.php" method="POST" enctype="multipart/form-data" onsubmit="handleSignup(event)">
+                <div class="role-selection">
+                    <button type="button" class="role-btn active" data-role="provider" onclick="selectRole('provider')">Provider</button>
+                    <button type="button" class="role-btn" data-role="beneficiary" onclick="selectRole('beneficiary')">Beneficiary</button>
+                </div>
+                <input type="hidden" id="user-role" name="role" value="provider">
+
+                <!-- Common Fields -->
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required>
+                </div>
+
+                <!-- Provider Fields -->
+                <div id="provider-fields" class="role-fields">
+                    <h3>Company Information</h3>
+                    <div class="form-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" id="company-name" name="company_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-logo">Company Logo</label>
+                        <input type="file" id="company-logo" name="company_logo" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="cta-link">Call-to-Action (CTA) Link</label>
+                        <input type="url" id="cta-link" name="cta_link" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-files">Company Files (Documents, Brochures)</label>
+                        <input type="file" id="company-files" name="company_files[]" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-videos">Company Videos (URLs)</label>
+                        <textarea id="company-videos" name="company_videos" placeholder="Enter video URLs, one per line"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-email">Company Email</label>
+                        <input type="email" id="company-email" name="company_email" required>
+                    </div>
+                    <h3>Point of Contact</h3>
+                    <div class="form-group">
+                        <label for="contact-name">Contact Person's Name</label>
+                        <input type="text" id="contact-name" name="contact_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-title">Job Title</label>
+                        <input type="text" id="job-title" name="job_title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Contact Person's Email</label>
+                        <input type="email" id="contact-email" name="contact_email" required>
+                    </div>
+                    <h3>Service Details</h3>
+                    <div class="form-group">
+                        <label for="service-name">Service Name</label>
+                        <input type="text" id="service-name" name="service_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-description">Service Description</label>
+                        <textarea id="service-description" name="service_description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Services Offered</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="services[]" value="media_coverage"> Media Coverage</label>
+                            <label><input type="checkbox" name="services[]" value="consultation"> Consultation</label>
+                            <label><input type="checkbox" name="services[]" value="marketing"> Marketing</label>
+                            <label><input type="checkbox" name="services[]" value="training"> Training</label>
+                            <label><input type="checkbox" name="services[]" value="press_media"> Press Media</label>
+                            <label><input type="checkbox" name="services[]" value="printing_logistics"> Printings, Production and Logistics</label>
+                            <label><input type="checkbox" name="services[]" value="graphics_content"> Graphics and Content Creation</label>
+                            <label><input type="checkbox" name="services[]" value="it"> IT</label>
+                            <label><input type="checkbox" name="services[]" value="events_management"> Events Management</label>
+                            <label><input type="checkbox" name="services[]" value="digital_marketing"> Digital Marketing</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Cairo, Egypt">
+                    </div>
+                </div>
+
+                <!-- Beneficiary Fields -->
+                <div id="beneficiary-fields" class="role-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="beneficiary-email">Email</label>
+                        <input type="email" id="beneficiary-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="beneficiary-company">Company Name (Optional)</label>
+                        <input type="text" id="beneficiary-company" name="beneficiary_company">
+                    </div>
+                    <div class="form-group">
+                        <label for="business-industry">Business Industry (Optional)</label>
+                        <input type="text" id="business-industry" name="business_industry">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-provider">Preferred Provider (Optional)</label>
+                        <input type="text" id="preferred-provider" name="preferred_provider">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Interests</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="service_interests[]" value="media_coverage"> Media Coverage</label>
+                            <label><input type="checkbox" name="service_interests[]" value="consultation"> Consultation</label>
+                            <label><input type="checkbox" name="service_interests[]" value="marketing"> Marketing</label>
+                            <label><input type="checkbox" name="service_interests[]" value="training"> Training</label>
+                            <label><input type="checkbox" name="service_interests[]" value="press_media"> Press Media</label>
+                            <label><input type="checkbox" name="service_interests[]" value="printing_logistics"> Printings, Production and Logistics</label>
+                            <label><input type="checkbox" name="service_interests[]" value="graphics_content"> Graphics and Content Creation</label>
+                            <label><input type="checkbox" name="service_interests[]" value="it"> IT</label>
+                            <label><input type="checkbox" name="service_interests[]" value="events_management"> Events Management</label>
+                            <label><input type="checkbox" name="service_interests[]" value="digital_marketing"> Digital Marketing</label>
+                            <label><input type="checkbox" name="service_interests[]" value="other" id="other-checkbox"> Other</label>
+                        </div>
+                        <div id="other-service" style="display: none;">
+                            <input type="text" name="other_service" placeholder="Please specify other service">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="needs">Please describe the services you need</label>
+                        <textarea id="needs" name="needs" rows="4" placeholder="Please describe what services you need and any specific requirements..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt icon"></i> Shabeen, Ad DoqA, Dokki, Egypt</p>
+            <p><i class="fas fa-phone-alt icon"></i> <a href="tel:+1234567890">+123 456 7890</a></p>
+            <p><i class="fas fa-envelope icon"></i> <a href="mailto:eventocity.marketing@gmail.com">eventocity.marketing@gmail.com</a></p>
+        </div>
+    </footer>
+    <script>
+        function showForm(formType) {
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.toggle-btn[onclick="showForm('${formType}')"]`).classList.add('active');
+            document.querySelectorAll('.form-container').forEach(form => {
+                form.classList.remove('active');
+            });
+            document.getElementById(`${formType}-form`).classList.add('active');
+        }
+
+        function selectRole(role) {
+            document.querySelectorAll('.role-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-role="${role}"]`).classList.add('active');
+            document.getElementById('user-role').value = role;
+
+            if (role === 'provider') {
+                document.getElementById('provider-fields').style.display = 'block';
+                document.getElementById('beneficiary-fields').style.display = 'none';
+                toggleRequiredFields('provider', true);
+                toggleRequiredFields('beneficiary', false);
+            } else {
+                document.getElementById('provider-fields').style.display = 'none';
+                document.getElementById('beneficiary-fields').style.display = 'block';
+                toggleRequiredFields('provider', false);
+                toggleRequiredFields('beneficiary', true);
+            }
+        }
+
+        function toggleRequiredFields(role, required) {
+            const container = document.getElementById(`${role}-fields`);
+            const inputs = container.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                // Skip file inputs, checkboxes, and other_service
+                if (input.type !== 'file' && 
+                    input.type !== 'checkbox' && 
+                    input.name !== 'other_service' &&
+                    input.type !== 'hidden') {
+                    if (required) {
+                        input.setAttribute('required', '');
+                    } else {
+                        input.removeAttribute('required');
+                    }
+                }
+            });
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            console.log('Signup form submitted');
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Get the selected role
+            const roleBtn = document.querySelector('.role-btn.active');
+            if (!roleBtn) {
+                alert('Please select a role (Provider or Beneficiary)');
+                return;
+            }
+            const role = roleBtn.getAttribute('data-role');
+            formData.append('role', role);
+
+            // Log form data for debugging
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            // Basic validation
+            if (!formData.get('username')) {
+                alert('Username is required');
+                return;
+            }
+            if (!formData.get('password')) {
+                alert('Password is required');
+                return;
+            }
+
+            // Role-specific validation
+            if (role === 'provider') {
+                if (!formData.get('company_name')) {
+                    alert('Company Name is required');
+                    return;
+                }
+                if (!formData.get('company_email')) {
+                    alert('Company Email is required');
+                    return;
+                }
+                if (!formData.get('service_name')) {
+                    alert('Service Name is required');
+                    return;
+                }
+                if (!formData.get('service_description')) {
+                    alert('Service Description is required');
+                    return;
+                }
+            } else {
+                if (!formData.get('full_name')) {
+                    alert('Full Name is required');
+                    return;
+                }
+                if (!formData.get('email')) {
+                    alert('Email is required');
+                    return;
+                }
+            }
+
+            // Send the form data
+            fetch('auth/signup.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Signup response:', data);
+                if (data.success) {
+                    alert(data.message || 'Registration successful! Please log in.');
+                    window.location.href = data.redirect || 'index.html';
+                } else {
+                    alert(data.message || 'Registration failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Signup error:', error);
+                alert('An error occurred during signup. Please try again.');
+            });
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            console.log('Login form submitted');
+
+            const form = event.target;
+            const username = form.querySelector('input[name="username"]').value;
+            const password = form.querySelector('input[name="password"]').value;
+
+            // Basic validation
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+
+            // Send login request
+            fetch('auth/login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Login response:', data);
+                if (data.success) {
+                    // Store user data in sessionStorage
+                    if (data.user) {
+                        sessionStorage.setItem('user', JSON.stringify(data.user));
+                    }
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message || 'Login failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Login error:', error);
+                alert('An error occurred during login. Please try again.');
+            });
+        }
+
+        function showAbout() {
+            alert("About Us section will be displayed here.");
+        }
+
+        document.getElementById('other-checkbox').addEventListener('change', function() {
+            document.getElementById('other-service').style.display = this.checked ? 'block' : 'none';
+        });
+
+        selectRole('provider');
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+[13-Feb-2025 22:56:22 Europe/Berlin] Received POST data: Array
+(
+    [role] => beneficiary
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+    [company_name] => 
+    [cta_link] => 
+    [company_videos] => 
+    [company_email] => 
+    [contact_name] => 
+    [job_title] => 
+    [contact_email] => 
+    [service_name] => 
+    [service_description] => 
+    [location] => 
+    [full_name] => mayar fatouh
+    [email] => mayarfatouh1@gmail.com
+    [phone] => 01011153203
+    [beneficiary_company] => none
+    [business_industry] => none
+    [preferred_provider] => mm
+    [service_interests] => ["media_coverage"]
+    [other_service] => 
+    [needs] => none
+)
+
+[13-Feb-2025 22:56:22 Europe/Berlin] Created user with ID: 7
+[13-Feb-2025 22:56:22 Europe/Berlin] Processing beneficiary data
+[13-Feb-2025 22:58:15 Europe/Berlin] Signup request received
+[13-Feb-2025 22:58:15 Europe/Berlin] POST data: Array
+(
+    [role] => beneficiary
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+    [company_name] => 
+    [cta_link] => 
+    [company_videos] => 
+    [company_email] => 
+    [contact_name] => 
+    [job_title] => 
+    [contact_email] => 
+    [service_name] => 
+    [service_description] => 
+    [location] => 
+    [full_name] => mayar fatouh
+    [email] => mayarfatouh1@gmail.com
+    [phone] => 01011153203
+    [beneficiary_company] => none
+    [business_industry] => none
+    [preferred_provider] => mm
+    [service_interests] => Array
+        (
+            [0] => printing_logistics
+        )
+
+    [other_service] => 
+    [needs] => none
+)
+
+[13-Feb-2025 22:58:15 Europe/Berlin] Created user with ID: 8
+[13-Feb-2025 22:58:15 Europe/Berlin] Error in signup: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'field list'
+[13-Feb-2025 22:59:44 Europe/Berlin] Signup request received
+[13-Feb-2025 22:59:44 Europe/Berlin] POST data: Array
+(
+    [role] => beneficiary
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+    [company_name] => none
+    [cta_link] => https://example.com/signup
+    [company_videos] => 
+    [company_email] => mayarfatouh1@gmail.com
+    [contact_name] => mayar fatouh
+    [job_title] => mmm
+    [contact_email] => mayarfatouh1@gmail.com
+    [service_name] => mm
+    [service_description] => 
+    [location] => cairo 
+    [full_name] => mayar fatouh
+    [email] => mayarfatouh1@gmail.com
+    [phone] => 01011153203
+    [beneficiary_company] => none
+    [business_industry] => none
+    [preferred_provider] => mm
+    [service_interests] => Array
+        (
+            [0] => media_coverage
+        )
+
+    [other_service] => 
+    [needs] => none
+)
+
+[13-Feb-2025 22:59:44 Europe/Berlin] Created user with ID: 9
+[13-Feb-2025 22:59:44 Europe/Berlin] Error in signup: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'phone' in 'field list'
+[13-Feb-2025 23:03:03 Europe/Berlin] Signup request received
+[13-Feb-2025 23:03:03 Europe/Berlin] POST data: Array
+(
+    [role] => beneficiary
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+    [company_name] => 
+    [cta_link] => 
+    [company_videos] => 
+    [company_email] => 
+    [contact_name] => 
+    [job_title] => 
+    [contact_email] => 
+    [service_name] => 
+    [service_description] => 
+    [location] => 
+    [full_name] => mayar fatouh
+    [email] => mayarfatouh1@gmail.com
+    [phone] => 01011153203
+    [beneficiary_company] => none
+    [business_industry] => none
+    [preferred_provider] => mm
+    [service_interests] => Array
+        (
+            [0] => media_coverage
+        )
+
+    [other_service] => 
+    [needs] => none
+)
+
+[13-Feb-2025 23:03:03 Europe/Berlin] Created user with ID: 1
+[13-Feb-2025 23:03:03 Europe/Berlin] Beneficiary data inserted successfully
+[13-Feb-2025 23:03:03 Europe/Berlin] Transaction committed successfully
+[13-Feb-2025 23:05:43 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:05:43 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:05:43 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
+[13-Feb-2025 23:05:51 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:05:51 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:05:51 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
+[13-Feb-2025 23:07:51 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:07:51 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:07:51 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
+[13-Feb-2025 23:08:11 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:08:11 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:08:11 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
+[13-Feb-2025 23:08:44 Europe/Berlin] Signup request received
+[13-Feb-2025 23:08:44 Europe/Berlin] POST data: Array
+(
+    [role] => beneficiary
+    [username] => mayarfatouh@gmail.com
+    [password] => 1234
+    [company_name] => 
+    [cta_link] => 
+    [company_videos] => 
+    [company_email] => 
+    [contact_name] => 
+    [job_title] => 
+    [contact_email] => 
+    [service_name] => 
+    [service_description] => 
+    [location] => 
+    [full_name] => mayar fatouh
+    [email] => mayarfatouh@gmail.com
+    [phone] => 01011153203
+    [beneficiary_company] => none
+    [business_industry] => none
+    [preferred_provider] => mm
+    [service_interests] => Array
+        (
+            [0] => events_management
+        )
+
+    [other_service] => 
+    [needs] => none
+)
+
+[13-Feb-2025 23:08:44 Europe/Berlin] Created user with ID: 2
+[13-Feb-2025 23:08:44 Europe/Berlin] Beneficiary data inserted successfully
+[13-Feb-2025 23:08:44 Europe/Berlin] Transaction committed successfully
+[13-Feb-2025 23:11:04 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:11:04 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:11:04 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
+[13-Feb-2025 23:13:50 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:13:50 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:13:50 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
+[13-Feb-2025 23:15:33 Europe/Berlin] Login attempt - Input: Array
+(
+    [username] => mayarfatouh1@gmail.com
+    [password] => 1234
+)
+
+[13-Feb-2025 23:15:33 Europe/Berlin] User data: Array
+(
+    [id] => 1
+    [username] => mayarfatouh1@gmail.com
+    [password] => $2y$10$nekG3JYcYyVD1SoRkctLJuPTUOuyGyLl7i0.u2nluuwpZlVUGLeJC
+    [email] => mayarfatouh1@gmail.com
+    [role] => beneficiary
+    [created_at] => 2025-02-14 00:03:03
+    [profile_id] => 1
+    [display_name] => mayar fatouh
+)
+
+[13-Feb-2025 23:15:33 Europe/Berlin] Login successful for user: mayarfatouh1@gmail.com
